@@ -30,5 +30,14 @@ public class StudentTest {
 	public void testCompareTo() {
 		fail("Not yet implemented");
 	}
-
+	@Test
+	public void testGet() throws NameException {
+		Integer expected = INTITAL_RATING;
+		Integer rating = expected;
+		String firstName = "Alex";
+		String lastName = "Khalaf";
+		Student s = new Student(firstName, lastName, rating);
+		Integer actual = s.getRating();
+		assertEquals(expected, actual);
+	}
 }
