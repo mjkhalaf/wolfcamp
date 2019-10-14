@@ -11,6 +11,7 @@ public class Person extends NameHolder {
 	}
 	public Person(String firstName, String lastName) throws NameException
 	{
+		
 		this.lastName = lastName;
 		super.setFirstName(firstName);
 		
