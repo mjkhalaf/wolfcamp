@@ -1,3 +1,4 @@
+import java.io.PrintStream;
 import java.util.Date;
 
 public class FPDriver {
@@ -16,7 +17,11 @@ public class FPDriver {
 		aha.setHours(10);
 		aha.setMonth(11);
 		
-		System.out.println("1" + 2);
+		//System.out.println("1" + 2);
+		System.out.println(m());
 	}
-
+public static String m() {
+	double x = 3.22222222;
+	return String.format("%.3f", x);
+}
 }
