@@ -12,6 +12,7 @@ import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
@@ -63,15 +64,32 @@ public class Main extends Application {
 			whiteSpace.setPrefSize(200, 200);
 			whiteSpace.setEditable(false);
 			
+			//dropdown Menu
+			Label listLabel = new Label("Compare with:");
+			ComboBox menu = new ComboBox();
+			StationsHD newList = new StationsHD();
+			menu.getItems().addAll(newList.getStationsList());
+			
+			
 			//Show stations button
 			Button stations = new Button("Show Stations");
+			stations.setOnAction(new EventHandler<ActionEvent>()  {
+
+				@Override
+				public void handle(ActionEvent event)  {
+					whiteSpace.getItems().clear();
+					whiteSpace.getItems().addAll(newList.equalHamDist(menu.getValue().toString(), (int)ham.getValue()));
+				}
+			});
 			
 			//adding the componenets to the layout
 			root.add(sliderLabel, 0 , 0);
 			root.add(HamDist1, 1, 0);
 			root.add(ham, 0, 1);
 			root.add(stations, 0, 2);
-			root.add(whiteSpace, 0, 4);
+			root.add(whiteSpace, 0, 3);
+			root.add(listLabel, 0, 4);
+			root.add(menu, 1, 4);
 			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Hamming Distance");

@@ -18,6 +18,7 @@ public class StationsHD {
 	}
 	
 	public void read() throws IOException {
+		
 		stationsList = new ArrayList<>();
 		
 		File file = new File("C:\\Users\\m7md2\\Desktop\\Java 2 Porjects\\Project55\\src\\Mesonet.txt");
