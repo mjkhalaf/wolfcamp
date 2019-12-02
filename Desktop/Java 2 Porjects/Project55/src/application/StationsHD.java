@@ -32,11 +32,45 @@ public class StationsHD {
 		}
 		bw.close();
 	}
-	public ArrayList<String> equalHamDist(int dist) {
+	
+	public int calcHD(String stationID1, String stationID2) {
+		
+		int hmDist = 0;
+		
+		for (int i = 0; i < 4; ++i) {
+			
+			if (stationID1.charAt(i) == stationID2.charAt(i) ) {
+				hmDist += 0;
+				
+			}
+			else {
+				hmDist += 1;
+			}
+		}
+		
+		return hmDist;
+		
+	}
+	
+	public ArrayList<String> equalHamDist(String id, int dist) {
+		
 		equalHD = new ArrayList<>();
 		
+		for(int i = 0; i < stationsList.size(); i++) {
+			
+			if (calcHD(stationsList.get(i), id) == dist) {
+				equalHD.add(stationsList.get(i));
+			}
+		}
 		return equalHD;
-		
+	}
+
+	public ArrayList<String> getStationsList() {
+		return stationsList;
+	}
+
+	public ArrayList<String> getEqualHD() {
+		return equalHD;
 	}
 	
 }
