@@ -65,6 +65,18 @@ public class StationsHD {
 		}
 		return equalHD;
 	}
+	public int countHamDist(String id, int dist) {
+		
+		int count = 0;
+		
+		for(int i = 0; i < stationsList.size(); i++) {
+			
+			if (calcHD(stationsList.get(i), id) == dist) {
+				count++;
+			}
+		}
+		return count;
+	}
 
 	public ArrayList<String> getStationsList() {
 		return stationsList;

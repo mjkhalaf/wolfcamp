@@ -46,10 +46,11 @@ public class Main extends Application {
 			
 			TextField HamDist1 = new TextField();
 			HamDist1.setEditable(false);
+			HamDist1.setText("" + (int)ham.getValue());
 			
 			//updating the textfield according to the slider
 			ham.valueProperty().addListener(new ChangeListener<Number>()  {
-
+				
 				@Override
 				public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 					
@@ -82,6 +83,41 @@ public class Main extends Application {
 				}
 			});
 			
+			//Distance Labels
+			Label L0 = new Label("Distance 0");
+			Label L1 = new Label("Distance 1");
+			Label L2 = new Label("Distance 2");
+			Label L3 = new Label("Distance 3");
+			Label L4 = new Label("Distance 4");
+			
+			//Distance text area
+			TextField d0 = new TextField();
+			TextField d1 = new TextField();
+			TextField d2 = new TextField();
+			TextField d3 = new TextField();
+			TextField d4 = new TextField();
+			
+			d0.setEditable(false);
+			d1.setEditable(false);
+			d2.setEditable(false);
+			d3.setEditable(false);
+			d4.setEditable(false);
+
+			//Calculate HD button
+			Button calc = new Button("Calculate HD");
+			calc.setOnAction(new EventHandler<ActionEvent>()  {
+
+				@Override
+				public void handle(ActionEvent event)  {
+					
+					d0.setText("" + newList.countHamDist(menu.getValue().toString(), 0));
+					d1.setText("" + newList.countHamDist(menu.getValue().toString(), 1));
+					d2.setText("" + newList.countHamDist(menu.getValue().toString(), 2));
+					d3.setText("" + newList.countHamDist(menu.getValue().toString(), 3));
+					d4.setText("" + newList.countHamDist(menu.getValue().toString(), 4));
+				}
+			});
+			
 			//adding the componenets to the layout
 			root.add(sliderLabel, 0 , 0);
 			root.add(HamDist1, 1, 0);
@@ -90,6 +126,17 @@ public class Main extends Application {
 			root.add(whiteSpace, 0, 3);
 			root.add(listLabel, 0, 4);
 			root.add(menu, 1, 4);
+			root.add(calc,0 , 5);
+			root.add(L0, 0, 6);
+			root.add(L1, 0, 7);
+			root.add(L2, 0, 8);
+			root.add(L3, 0, 9);
+			root.add(L4, 0, 10);
+			root.add(d0, 1, 6);
+			root.add(d1, 1, 7);
+			root.add(d2, 1, 8);
+			root.add(d3, 1, 9);
+			root.add(d4, 1, 10);
 			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Hamming Distance");
