@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import jdk.management.resource.internal.TotalResourceContext;
+
 public class StationsHD {
 	
 	private ArrayList<String> stationsList;
@@ -76,6 +78,18 @@ public class StationsHD {
 			}
 		}
 		return count;
+	}
+	public int stationIndex(String StationID) {
+		int index = 0;
+		
+		for (int i = 0; i <= stationsList.size(); ++i) {
+			
+			if (StationID.equals(stationsList.get(i))) {
+				index = i;
+				break;
+			}
+		}
+		return index;
 	}
 
 	public ArrayList<String> getStationsList() {
