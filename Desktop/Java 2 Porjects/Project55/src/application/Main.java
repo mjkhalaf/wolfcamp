@@ -22,12 +22,13 @@ import javafx.scene.text.Font;
 
 
 public class Main extends Application {
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			double val = 0;
 			GridPane root = new GridPane();
-			Scene scene = new Scene(root,500,600);
+			Scene scene = new Scene(root,600,600);
 			
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			//slider label
@@ -38,6 +39,7 @@ public class Main extends Application {
 			Slider ham = new Slider(1, 4, val);
 			ham.setSnapToTicks(true);
 			ham.setMajorTickUnit(1);
+			
 			ham.setShowTickMarks(true);
 			ham.setShowTickLabels(true);
 			ham.setBlockIncrement(1);
@@ -118,6 +120,18 @@ public class Main extends Application {
 				}
 			});
 			
+			//add station Button
+			TextField id = new TextField();
+			Button add = new Button("Add Station");
+			add.setOnAction(new EventHandler<ActionEvent>()  {
+
+				@Override
+				public void handle(ActionEvent event)  {
+					
+					menu.getItems().add(id.getText());
+					
+				}
+			});
 			//adding the componenets to the layout
 			root.add(sliderLabel, 0 , 0);
 			root.add(HamDist1, 1, 0);
@@ -137,6 +151,8 @@ public class Main extends Application {
 			root.add(d2, 1, 8);
 			root.add(d3, 1, 9);
 			root.add(d4, 1, 10);
+			root.add(add, 0, 11);
+			root.add(id, 1, 11);
 			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Hamming Distance");
