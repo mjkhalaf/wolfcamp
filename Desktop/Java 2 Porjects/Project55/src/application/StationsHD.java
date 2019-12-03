@@ -82,14 +82,36 @@ public class StationsHD {
 	public int stationIndex(String StationID) {
 		int index = 0;
 		
-		for (int i = 0; i <= stationsList.size(); ++i) {
+		for (int i = 0; i < stationsList.size(); ++i) {
 			
 			if (StationID.equals(stationsList.get(i))) {
-				index = i;
+				index = i + 1;
 				break;
 			}
 		}
 		return index;
+	}
+	public int[] Avg(String StationID) {
+		
+		double sumA = 0;
+		int ceiling = 0;
+		int floor = 0;
+		int avg = 0;
+		for (int i = 0; i < StationID.length(); ++i) {
+			sumA += StationID.charAt(i);
+		}
+		sumA = sumA / 4;
+		floor = (int) sumA;
+		ceiling = floor + 1;
+		if(sumA - floor < 0.5) {
+			avg = floor;
+		}
+		else {
+			avg = ceiling;
+		}
+		int[] result = {floor,ceiling,avg};
+		
+		return result;
 	}
 
 	public ArrayList<String> getStationsList() {

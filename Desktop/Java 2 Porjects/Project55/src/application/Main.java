@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
@@ -23,6 +24,7 @@ import javafx.scene.text.Font;
 
 public class Main extends Application {
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void start(Stage primaryStage) {
 		
@@ -133,6 +135,46 @@ public class Main extends Application {
 					
 				}
 			});
+			
+			//start of the creative section
+			//finding the index of the station in the dropdown menu
+			Label indexLabel = new Label("	Station Index is:	");
+			TextField index = new TextField();
+			index.setEditable(false);
+			menu.setOnAction(new EventHandler<Event>() {
+
+				@Override
+				public void handle(Event event) {
+					index.setText("" + newList.stationIndex(menu.getValue().toString()));
+				}
+			});
+			
+			//Finding ASCEII average of the station from the menu
+			Button avgAS = new Button("Ascii Average");
+			Label floorL = new Label("	Floor: ");
+			Label ceilingL = new Label("	Ceiling: ");
+			Label avgL = new Label("	Average: ");
+			
+			TextField floor = new TextField();
+			TextField ceiling = new TextField();
+			TextField avg = new TextField();
+			
+			floor.setEditable(false);
+			ceiling.setEditable(false);
+			avg.setEditable(false);
+			
+			avgAS.setOnAction(new EventHandler<ActionEvent>() {
+
+				@Override
+				public void handle(ActionEvent event) {
+					floor.setText("" + newList.Avg(menu.getValue().toString())[0]);
+					ceiling.setText(""+ newList.Avg(menu.getValue().toString())[1]);
+					avg.setText("" + newList.Avg(menu.getValue().toString())[2]);
+					
+				}
+			});
+			
+			
 			//adding the componenets to the layout
 			root.add(sliderLabel, 0 , 0);
 			root.add(HamDist1, 1, 0);
@@ -154,6 +196,16 @@ public class Main extends Application {
 			root.add(d4, 1, 10);
 			root.add(add, 0, 11);
 			root.add(id, 1, 11);
+			//creative
+			root.add(indexLabel, 2, 4);
+			root.add(index, 3, 4);
+			root.add(avgAS, 2, 5);
+			root.add(floorL, 2, 6);
+			root.add(ceilingL, 2, 7);
+			root.add(avgL, 2, 8);
+			root.add(floor, 3, 6);
+			root.add(ceiling, 3, 7);
+			root.add(avg, 3, 8);
 			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Hamming Distance");
