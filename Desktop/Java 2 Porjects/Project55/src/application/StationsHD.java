@@ -126,6 +126,11 @@ public class StationsHD {
 		}
 		return index;
 	}
+	/**
+	 * calculates the asceii average of a station
+	 * @param StationID
+	 * @return floor, ceiling and average of a station Asceii
+	 */
 	public int[] Avg(String StationID) {
 		
 		double sumA = 0;
@@ -148,7 +153,10 @@ public class StationsHD {
 		
 		return result;
 	}
-
+	/**
+	 * 
+	 * @return the list of all the staitons
+	 */
 	public ArrayList<String> getStationsList() {
 		return stationsList;
 	}
