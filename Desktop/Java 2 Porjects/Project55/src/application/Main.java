@@ -38,28 +38,28 @@ public class Main extends Application {
 			sliderLabel.setFont(new Font(15));
 		
 			//slider setup
-			Slider ham = new Slider(1, 4, val);
-			ham.setSnapToTicks(true);
-			ham.setMajorTickUnit(1);
+			Slider slider = new Slider(1, 4, val);
+			slider.setSnapToTicks(true);
+			slider.setMajorTickUnit(1);
 			
-			ham.setShowTickMarks(true);
-			ham.setShowTickLabels(true);
-			ham.setBlockIncrement(1);
-			ham.setMinorTickCount(0);
+			slider.setShowTickMarks(true);
+			slider.setShowTickLabels(true);
+			slider.setBlockIncrement(1);
+			slider.setMinorTickCount(0);
 			
 			
 			TextField HamDist1 = new TextField();
 			HamDist1.setEditable(false);
-			HamDist1.setText("" + (int)ham.getValue());
+			HamDist1.setText("" + (int)slider.getValue());
 			
 			//updating the textfield according to the slider
-			ham.valueProperty().addListener(new ChangeListener<Number>()  {
+			slider.valueProperty().addListener(new ChangeListener<Number>()  {
 				
 				@Override
 				public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 					
-					ham.setValue(newValue.intValue());
-					HamDist1.setText("" + (int)ham.getValue());
+					slider.setValue(newValue.intValue());
+					HamDist1.setText("" + (int)slider.getValue());
 					
 				}				
 			});
@@ -83,7 +83,7 @@ public class Main extends Application {
 				@Override
 				public void handle(ActionEvent event)  {
 					whiteSpace.getItems().clear();
-					whiteSpace.getItems().addAll(newList.equalHamDist(menu.getValue().toString(), (int)ham.getValue()));
+					whiteSpace.getItems().addAll(newList.equalHamDist(menu.getValue().toString(), (int)slider.getValue()));
 				}
 			});
 			
@@ -177,7 +177,7 @@ public class Main extends Application {
 			//adding the componenets to the layout
 			root.add(sliderLabel, 0 , 0);
 			root.add(HamDist1, 1, 0);
-			root.add(ham, 0, 1);
+			root.add(slider, 0, 1);
 			root.add(stations, 0, 2);
 			root.add(whiteSpace, 0, 3);
 			root.add(listLabel, 0, 4);
@@ -195,7 +195,8 @@ public class Main extends Application {
 			root.add(d4, 1, 10);
 			root.add(add, 0, 11);
 			root.add(id, 1, 11);
-			//creative
+			
+			//creative section
 			root.add(indexLabel, 2, 4);
 			root.add(index, 3, 4);
 			root.add(avgAS, 2, 5);
