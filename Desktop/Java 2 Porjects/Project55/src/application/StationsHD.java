@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class StationsHD {
 	
+	
 	private ArrayList<String> stationsList;
 	private ArrayList<String> equalHD;
 	
@@ -113,10 +114,6 @@ public class StationsHD {
 
 	public ArrayList<String> getStationsList() {
 		return stationsList;
-	}
-
-	public ArrayList<String> getEqualHD() {
-		return equalHD;
 	}
 	
 }
