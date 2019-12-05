@@ -73,7 +73,12 @@ public class StationsHD {
 		return hmDist;
 		
 	}
-	
+	/**
+	 * finds the stations that has the same given hamming distance from a given station
+	 * @param Station id
+	 * @param dist (hamming distance)
+	 * @return arraylist of the stations with the same given hamming distance
+	 */
 	public ArrayList<String> equalHamDist(String id, int dist) {
 		
 		equalHD = new ArrayList<>();
