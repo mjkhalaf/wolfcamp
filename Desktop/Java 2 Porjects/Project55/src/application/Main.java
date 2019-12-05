@@ -23,7 +23,7 @@ import javafx.scene.text.Font;
 
 public class Main extends Application {
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void start(Stage primaryStage) {
 		
