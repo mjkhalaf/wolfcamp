@@ -8,17 +8,32 @@ import java.util.ArrayList;
 
 public class StationsHD {
 	
-	
+	/**
+	 * the list of stations are stored in this list
+	 */
 	private ArrayList<String> stationsList;
+	/**
+	 * list of stations with equal distance
+	 */
 	private ArrayList<String> equalHD;
 	
+	/**
+	 * default constructor that invokes the method read()
+	 * @throws IOException
+	 */
 	public StationsHD() throws IOException {
 		read();
 		
 	}
 	
+	/**
+	 * a method to read the stations from the Mesonet file and stores the stations in the ArrayList
+	 * stationsList
+	 * @throws IOException
+	 */
 	public void read() throws IOException {
 		
+		//intialize the array list 
 		stationsList = new ArrayList<>();
 		
 		File file = new File("C:\\Users\\m7md2\\Desktop\\Java 2 Porjects\\Project55\\src\\Mesonet.txt");
@@ -34,6 +49,12 @@ public class StationsHD {
 		bw.close();
 	}
 	
+	/**
+	 * calcualte the hamming distance between two stations
+	 * @param stationID1
+	 * @param stationID2
+	 * @return hamming distance between two stations
+	 */
 	public int calcHD(String stationID1, String stationID2) {
 		
 		int hmDist = 0;
