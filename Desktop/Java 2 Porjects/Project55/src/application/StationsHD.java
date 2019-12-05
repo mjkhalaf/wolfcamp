@@ -95,7 +95,7 @@ public class StationsHD {
 	 * finds out how many stations have the same given hamming dstance from a certain station
 	 * @param  station id
 	 * @param dist (hamming distnace)
-	 * @return
+	 * @return the number of stations
 	 */
 	public int countHamDist(String id, int dist) {
 		
@@ -109,7 +109,11 @@ public class StationsHD {
 		}
 		return count;
 	}
-	
+	/**
+	 * finds the index of a certain staiton in the list of stations
+	 * @param StationID
+	 * @return index of station
+	 */
 	public int stationIndex(String StationID) {
 		int index = 0;
 		
