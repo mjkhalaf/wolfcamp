@@ -108,8 +108,8 @@ public class Main extends Application {
 			d4.setEditable(false);
 
 			//Calculate HD button
-			Button calc = new Button("Calculate HD");
-			calc.setOnAction(new EventHandler<ActionEvent>()  {
+			Button calButton = new Button("Calculate HD");
+			calButton.setOnAction(new EventHandler<ActionEvent>()  {
 
 				@Override
 				public void handle(ActionEvent event)  {
@@ -182,7 +182,7 @@ public class Main extends Application {
 			root.add(whiteSpace, 0, 3);
 			root.add(listLabel, 0, 4);
 			root.add(menu, 1, 4);
-			root.add(calc,0 , 5);
+			root.add(calButton,0 , 5);
 			root.add(L0, 0, 6);
 			root.add(L1, 0, 7);
 			root.add(L2, 0, 8);
