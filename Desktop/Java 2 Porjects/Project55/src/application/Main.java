@@ -76,9 +76,9 @@ public class Main extends Application {
 			menu.getItems().addAll(newList.getStationsList());
 			
 			
-			//Show stations button
-			Button stations = new Button("Show Stations");
-			stations.setOnAction(new EventHandler<ActionEvent>()  {
+			//Show showButton button
+			Button showButton = new Button("Show Stations");
+			showButton.setOnAction(new EventHandler<ActionEvent>()  {
 
 				@Override
 				public void handle(ActionEvent event)  {
@@ -178,7 +178,7 @@ public class Main extends Application {
 			root.add(sliderLabel, 0 , 0);
 			root.add(HamDist1, 1, 0);
 			root.add(slider, 0, 1);
-			root.add(stations, 0, 2);
+			root.add(showButton, 0, 2);
 			root.add(whiteSpace, 0, 3);
 			root.add(listLabel, 0, 4);
 			root.add(menu, 1, 4);
